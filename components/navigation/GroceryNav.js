@@ -140,7 +140,7 @@ const Navbar = () => {
                                 
                                 </div>
                                 <div className="flex flex-row items-center justify-evenly px-4 my-12">
-                                <Link href="/dashboard">
+                                <Link href="/grocery/dashboard">
                                         <span className="flex flex-col items-center px-3 py-3 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
                                             {renderIcon("/icons/grocery.png", "text-green-600")}
                                             <div className="text-center">
@@ -149,12 +149,21 @@ const Navbar = () => {
                                             </div>
                                         </span>
                                     </Link>
-                                    <Link href="/dashboard">
+                                    <Link href="/pharmacy/dashboard">
                                         <span className="flex flex-col items-center px-3 py-3 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
                                             {renderIcon("/icons/pharmacy.png", "text-blue-600")}
                                             <div className="text-center">
                                                 <p className="font-medium">Pharmacy</p>
                                                 <p className="text-xs text-gray-500">Manage medicine orders</p>
+                                            </div>
+                                        </span>
+                                    </Link>
+                                    <Link href="/food/dashboard">
+                                        <span className="flex flex-col items-center px-3 py-5 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
+                                            {renderIcon("/icons/pharmacy.png", "text-blue-600")}
+                                            <div className="text-center">
+                                                <p className="font-medium">Food</p>
+                                                <p className="text-xs text-gray-500">Manage food orders</p>
                                             </div>
                                         </span>
                                     </Link>
