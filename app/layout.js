@@ -1,32 +1,31 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "../components/Navbar";
+
+import { Geist, Geist_Mono } from 'next/font/google'
+import { ModuleProvider } from '../components/context/ModuleContext'
+import { ModuleDetector } from '../components/ModuleDetector'
+import { metadata } from './metadata'
+import NavbarController from '@/components/navigation/NavbarController'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+})
 
-export const metadata = {
-  title: "Multi vendor Panel",
-  description: "Welcome to multi vendor admin Panel",
-};
+export { metadata }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
-        <div className="ml-72 mr-8"> {children}</div>
-       
-      </body>
+      <ModuleProvider>
+        <body>
+          <NavbarController />
+          <main>{children}</main>
+        </body>
+      </ModuleProvider>
     </html>
-  );
+  )
 }
