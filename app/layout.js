@@ -4,6 +4,8 @@ import { ModuleProvider } from '../components/context/ModuleContext'
 import { ModuleDetector } from '../components/ModuleDetector'
 import { metadata } from './metadata'
 import NavbarController from '@/components/navigation/NavbarController'
+import ModuleNav from '@/components/navigation/ModuleNav'
+import "./globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +25,9 @@ export default function RootLayout({ children }) {
       <ModuleProvider>
         <body>
           <NavbarController />
+          <div className="module-navbar">
+            <ModuleNav/>
+          </div>
           <main>{children}</main>
         </body>
       </ModuleProvider>
