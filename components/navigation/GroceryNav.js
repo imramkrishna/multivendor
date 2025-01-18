@@ -139,7 +139,7 @@ const Navbar = () => {
                                 <p className='text-blue-600 my-3'>Select Module and monitor <p className='text-blue-600'>your business module wise</p></p>
                                 
                                 </div>
-                                <div className="flex flex-row items-center justify-evenly px-4 my-12">
+                                <div className="flex flex-row items-center justify-evenly px-4 my-12 w-full">
                                 <Link href="/grocery/dashboard">
                                         <span className="flex flex-col items-center px-3 py-3 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
                                             {renderIcon("/icons/grocery.png", "text-green-600")}
