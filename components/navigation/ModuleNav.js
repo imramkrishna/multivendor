@@ -201,31 +201,31 @@ const Navbar = () => {
                             DELIVERY MANAGEMENT
                         </p>
 
-                        <Link href="/vehicles-category">
+                        <Link href="/modulesection/vehicles-category">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaTruck className="mr-3" />
                                 Vehicles Category
                             </span>
                         </Link>
-                        <Link href="/add-delivery-man">
+                        <Link href="/modulesection/add-delivery-man">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaUserPlus className="mr-3" />
                                 Add Delivery Man
                             </span>
                         </Link>
-                        <Link href="/new-delivery-man">
+                        <Link href="/modulesection/new-delivery-man">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaUsers className="mr-3" />
                                 New Delivery Man
                             </span>
                         </Link>
-                        <Link href="/deliveryman-list">
+                        <Link href="/modulesection/deliveryman-list">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaList className="mr-3" />
                                 Deliveryman List
                             </span>
                         </Link>
-                        <Link href="/reviews">
+                        <Link href="/modulesection/reviews">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaStar className="mr-3" />
                                 Reviews
