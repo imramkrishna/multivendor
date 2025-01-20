@@ -26,6 +26,8 @@ const Navbar = () => {
     const [isAdsOpen, setIsAdsOpen] = useState(false);
     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     const [isProductSetupOpen, setIsProductSetupOpen] = useState(false);
+    const [isWalletOpen, setIsWalletOpen] = useState(false);
+    const [isLoyaltyOpen, setIsLoyaltyOpen] = useState(false);
 
     return (
         <div>
@@ -236,24 +238,66 @@ const Navbar = () => {
                             CUSTOMER MANAGEMENT
                         </p>
 
-                        <Link href="/customers">
+                        <Link href="/modulesection/customers">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaUsers className=" mr-3" />
                                 Customers
                             </span>
                         </Link>
-                        <Link href="/customer-wallet">
-                            <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
-                                <FaWallet className=" mr-3" />
+                        <div 
+                            onClick={() => setIsWalletOpen(!isWalletOpen)}
+                            className="flex items-center justify-between p-3 rounded-md hover:text-green-300 cursor-pointer"
+                        >
+                            <span className="flex items-center">
+                                <FaWallet className="mr-3" />
                                 Customer Wallet
                             </span>
-                        </Link>
-                        <Link href="/loyalty-points">
-                            <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
-                                <FaMedal className=" mr-3" />
-                                Customer Loyalty Points
+                            <FaChevronDown className={`transition-transform duration-200 ${isWalletOpen ? 'transform rotate-180' : ''}`} />
+                        </div>
+                        
+                        {isWalletOpen && (
+                            <div className="ml-4 mt-2 space-y-2">
+                                <Link href="/modulesection/customerwallet/addfunds">
+                                    <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                        <span className="mr-2 text-blue-300">•</span>
+                                        Add Funds
+                                    </span>
+                                </Link>
+                                <Link href="/modulesection/customerwallet/report">
+                                    <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                        <span className="mr-2 text-blue-300">•</span>
+                                        Report
+                                    </span>
+                                </Link>
+                                <Link href="/modulesection/customerwallet/bonus">
+                                    <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                        <span className="mr-2 text-blue-300">•</span>
+                                        Bonus
+                                    </span>
+                                </Link>
+                            </div>
+                        )}
+                        <div 
+                            onClick={() => setIsLoyaltyOpen(!isLoyaltyOpen)}
+                            className="flex items-center justify-between p-3 rounded-md hover:text-green-300 cursor-pointer"
+                        >
+                            <span className="flex items-center">
+                                <FaMedal className="mr-3" />
+                                Loyalty Points
                             </span>
-                        </Link>
+                            <FaChevronDown className={`transition-transform duration-200 ${isLoyaltyOpen ? 'transform rotate-180' : ''}`} />
+                        </div>
+                        
+                        {isLoyaltyOpen && (
+                            <div className="ml-4 mt-2 space-y-2">
+                                <Link href="/modulesection/loyaltypoints">
+                                    <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                        <span className="mr-2 text-blue-300">•</span>
+                                        Reports
+                                    </span>
+                                </Link>
+                            </div>
+                        )}
                         <Link href="/subscribed-mail">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaEnvelope className=" mr-3" />
