@@ -28,6 +28,7 @@ const Navbar = () => {
     const [isProductSetupOpen, setIsProductSetupOpen] = useState(false);
     const [isWalletOpen, setIsWalletOpen] = useState(false);
     const [isLoyaltyOpen, setIsLoyaltyOpen] = useState(false);
+    const [isEmployeeOpen, setIsEmployeeOpen] = useState(false);
 
     return (
         <div>
@@ -298,13 +299,13 @@ const Navbar = () => {
                                 </Link>
                             </div>
                         )}
-                        <Link href="/subscribed-mail">
+                        <Link href="/modulesection/subscribedmaillist">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaEnvelope className=" mr-3" />
                                 Subscribed Mail List
                             </span>
                         </Link>
-                        <Link href="/contact-messages">
+                        <Link href="/modulesection/contact-messages">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaComments className=" mr-3" />
                                 Contact Messages
@@ -314,29 +315,40 @@ const Navbar = () => {
 
                             EMPLOYEE MANAGEMENT
                         </p>
-                        <Link href="/employee-role">
+                        <Link href="/modulesection/employeerole">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaUserTie className=" mr-3" />
                                 Employee Role
                             </span>
                         </Link>
 
-                        <Link href="/employees">
-                            <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
-                                <FaUsers className=" mr-3" />
+                        <div 
+                            onClick={() => setIsEmployeeOpen(!isEmployeeOpen)}
+                            className="flex items-center justify-between p-3 rounded-md hover:text-green-300 cursor-pointer"
+                        >
+                            <span className="flex items-center">
+                                <FaUsers className="mr-3" />
                                 Employees
                             </span>
-                        </Link>
-
-
-
-
-
-
-
-
-
-
+                            <FaChevronDown className={`transition-transform duration-200 ${isEmployeeOpen ? 'transform rotate-180' : ''}`} />
+                        </div>
+                        
+                        {isEmployeeOpen && (
+                            <div className="ml-4 mt-2 space-y-2">
+                                <Link href="/modulesection/add-new-employee">
+                                    <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                        <span className="mr-2 text-blue-300">•</span>
+                                        Add New
+                                    </span>
+                                </Link>
+                                <Link href="/modulesection/employeelist">
+                                    <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                        <span className="mr-2 text-blue-300">•</span>
+                                        List
+                                    </span>
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </nav>
             </div>
