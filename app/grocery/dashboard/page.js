@@ -140,7 +140,7 @@ const DashboardPage = () => {
 
   return (
     <div className="overflow-auto w-full">
-      <div className="flex flex-col mb-8">
+      <div className="flex flex-col mt-0 mb-8">
         <h1 className="text-2xl font-bold text-gray-800 flex items-center">
         {rendergroceryIcon("/icons/grocery.png")}
           Grocery Dashboard

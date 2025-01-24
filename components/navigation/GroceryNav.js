@@ -190,7 +190,7 @@ const Navbar = () => {
 
                     {/* Menu Items */}
                     <div className="space-y-2">
-                        <Link href="/dashboard">
+                        <Link href="/grocery/dashboard">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaTachometerAlt className="mr-3" />
                                 Dashboard
@@ -202,7 +202,7 @@ const Navbar = () => {
                             POS SECTION
                         </p>
 
-                        <Link href="/new-sale">
+                        <Link href="/grocery/new-sale">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaShoppingCart className="mr-3" />
                                 New Sale
@@ -228,67 +228,67 @@ const Navbar = () => {
 
                             {isOrdersOpen && (
                                 <div className="ml-4 mt-2 space-y-2">
-                                    <Link href="/orders">
+                                    <Link href="/grocery/orders-management/all">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             All
                                         </span>
                                     </Link>
-                                    <Link href="/scheduledorders">
+                                    <Link href="/grocery/orders-management/scheduledorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Scheduled
                                         </span>
                                     </Link>
-                                    <Link href="/pendingorders">
+                                    <Link href="/grocery/orders-management/pendingorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Pending
                                         </span>
                                     </Link>
-                                    <Link href="/acceptedorders">
+                                    <Link href="/grocery/orders-management/acceptedorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300 ">•</span>
                                             Accepted
                                         </span>
                                     </Link>
-                                    <Link href="/processingorders">
+                                    <Link href="/grocery/orders-management/processingorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Processing
                                         </span>
                                     </Link>
-                                    <Link href="/onthewayorders">
+                                    <Link href="/grocery/orders-management/onthewayorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Order On The way
                                         </span>
                                     </Link>
-                                    <Link href="/completedorders">
+                                    <Link href="/grocery/orders-management/completedorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300 ">•</span>
                                             Delivered
                                         </span>
                                     </Link>
-                                    <Link href="/cancelledorders">
+                                    <Link href="/grocery/orders-management/cancelledorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Canceled
                                         </span>
                                     </Link>
-                                    <Link href="/paymentfailedorders">
+                                    <Link href="/grocery/orders-management/paymentfailedorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Payment Failed
                                         </span>
                                     </Link>
-                                    <Link href="/refundorders">
+                                    <Link href="/grocery/orders-management/refundorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Refunded
                                         </span>
                                     </Link>
-                                    <Link href="/refundorders">
+                                    <Link href="/grocery/orders-management/refundorders">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Offline Payments
@@ -300,13 +300,13 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
-                        <Link href="/refunds">
+                        <Link href="/grocery/orders-management/refunds">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaExchangeAlt className="mr-3" />
                                 Order Refunds
                             </span>
                         </Link>
-                        <Link href="/flashsale">
+                        <Link href="/grocery/orders-management/flashsale">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaBolt className="mr-3" />
                                 Flash Sale
