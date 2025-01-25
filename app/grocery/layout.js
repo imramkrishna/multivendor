@@ -4,8 +4,8 @@ export default function GroceryLayout({ children }) {
     return (
         
       <div className="grocery-layout">
-        <GroceryNav/>
-        <div className="ml-72">{children}</div>
+       
+        <div className="ml-72 mt-4">{children}</div>
         
       </div>
     )
