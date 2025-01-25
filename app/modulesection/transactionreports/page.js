@@ -1,97 +1,79 @@
-"use client"
-import React, { useState } from 'react'
-import { FaDownload, FaChartLine, FaWallet, FaCalendar, FaFilter } from 'react-icons/fa'
+'use client'
+import { useState } from 'react';
+import { FaSearch, FaFileExport, FaHistory } from 'react-icons/fa';
+import Image from 'next/image';
 
-const TransactionReports = () => {
-  const [transactions] = useState([
-    {
-      id: 'TXN001',
-      date: '2024-01-20',
-      customer: 'John Doe',
-      amount: '₹1,299',
-      method: 'UPI',
-      status: 'Completed'
-    },
-    // Add more transactions
-  ])
+export default function TransactionHistory() {
+    return (
+        <div className="p-4">
+            {/* Header */}
+            <div className="flex items-center mb-6">
+                <div className="relative w-8 h-8 mr-3">
+                    <Image
+                        src="/modulesection/transaction.png"
+                        alt="Transaction History"
+                        layout="fill"
+                        objectFit="contain"
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <h1 className="text-2xl font-bold">Store Withdraw Transaction</h1>
+                    <p className="text-sm text-gray-500">View all transactions</p>
+                </div>
+            </div>
 
-  return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Transaction Reports</h1>
-        
-        <div className="flex gap-4">
-          <button className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50">
-            <FaFilter /> Filter
-          </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-            <FaDownload /> Export
-          </button>
-        </div>
-      </div>
+            {/* Transaction Table */}
+            <div className="bg-white rounded-lg shadow border">
+                <div className="p-4 flex justify-end items-center border-b">
+                    <div className="flex items-center gap-4">
+                        <div className="relative">
+                            <input
+                                type="text"
+                                placeholder="Search transactions..."
+                                className="w-64 pl-10 pr-4 py-2 border rounded-lg"
+                            />
+                            <FaSearch className="absolute left-3 top-3 text-gray-400" />
+                        </div>
+                        <button className="flex items-center gap-2 px-4 py-2 text-teal-600 border border-teal-600 rounded-lg hover:bg-teal-50">
+                            <FaFileExport />
+                            Export
+                        </button>
+                    </div>
+                </div>
 
-      {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-        <div className="bg-gradient-to-r from-blue-400 to-blue-400 rounded-xl p-6 text-white">
-          <h3 className="text-lg opacity-80">Total Revenue</h3>
-          <p className="text-3xl font-bold mt-2">₹45,670</p>
-          <p className="text-sm opacity-80 mt-2">+12% from last month</p>
+                <table className="min-w-full">
+                    <thead>
+                        <tr className="bg-gray-50">
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">SL</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Store</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Request Time</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                        {[1, 2, 3].map((item, index) => (
+                            <tr key={index} className="hover:bg-gray-50">
+                                <td className="px-6 py-4">{index + 1}</td>
+                                <td className="px-6 py-4 font-medium">$1,234.56</td>
+                                <td className="px-6 py-4">Store Name {index + 1}</td>
+                                <td className="px-6 py-4">2024-02-20 14:30</td>
+                                <td className="px-6 py-4">
+                                    <span className={`px-2 py-1 text-xs rounded-full ${
+                                        index === 0 ? 'bg-green-100 text-green-800' :
+                                        index === 1 ? 'bg-yellow-100 text-yellow-800' :
+                                        'bg-red-100 text-red-800'
+                                    }`}>
+                                        {index === 0 ? 'Completed' :
+                                         index === 1 ? 'Pending' :
+                                         'Failed'}
+                                    </span>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white">
-          <h3 className="text-lg opacity-80">Transactions</h3>
-          <p className="text-3xl font-bold mt-2">1,234</p>
-          <p className="text-sm opacity-80 mt-2">Last 30 days</p>
-        </div>
-        <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl p-6 text-white">
-          <h3 className="text-lg opacity-80">Average Order</h3>
-          <p className="text-3xl font-bold mt-2">₹876</p>
-          <p className="text-sm opacity-80 mt-2">+5% from last month</p>
-        </div>
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 text-white">
-          <h3 className="text-lg opacity-80">Success Rate</h3>
-          <p className="text-3xl font-bold mt-2">98.5%</p>
-          <p className="text-sm opacity-80 mt-2">+2% from last month</p>
-        </div>
-      </div>
-
-      {/* Transaction History Table */}
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        <div className="p-6 border-b">
-          <h2 className="text-lg font-semibold">Transaction History</h2>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Transaction ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Method</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {transactions.map((transaction) => (
-                <tr key={transaction.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">{transaction.id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{transaction.date}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{transaction.customer}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{transaction.amount}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{transaction.method}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                      {transaction.status}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  )
+    );
 }
-
-export default TransactionReports

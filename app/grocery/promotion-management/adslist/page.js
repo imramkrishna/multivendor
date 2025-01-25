@@ -112,10 +112,10 @@ const Page = () => {
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex space-x-2">
-                    <button className="p-2 text-blue-600 hover:text-blue-800">
+                    <button className="p-2 border border-blue-600 rounded text-blue-600 hover:text-blue-800">
                       <FaPencilAlt className="w-4 h-4" />
                     </button>
-                    <button className="p-2 text-red-600 hover:text-red-800">
+                    <button className="p-2 border border-red-600 rounded text-red-600 hover:text-red-800">
                       <FaTrash className="w-4 h-4" />
                     </button>
                   </div>
@@ -151,10 +151,10 @@ const Page = () => {
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex space-x-2">
-                    <button className="p-2 text-blue-600 hover:text-blue-800">
+                  <button className="p-2 border border-blue-600 rounded text-blue-600 hover:text-blue-800">
                       <FaPencilAlt className="w-4 h-4" />
                     </button>
-                    <button className="p-2 text-red-600 hover:text-red-800">
+                    <button className="p-2 border border-red-600 rounded text-red-600 hover:text-red-800">
                       <FaTrash className="w-4 h-4" />
                     </button>
                   </div>

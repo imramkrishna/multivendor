@@ -1,60 +1,83 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import { FaCheck } from 'react-icons/fa'
+import React, { useState } from 'react'
+import { FaCheck, FaSearch, FaFileExport } from 'react-icons/fa'
+import Image from 'next/image'
 
 const CompletedOrdersPage = () => {
-  const [orders, setOrders] = useState([
-    {
-      id: 'ORD001',
-      customer: 'John Doe',
-      date: '2024-01-20',
-      amount: '₹1,299',
+  const [orders] = useState(
+    Array(23).fill().map((_, i) => ({
+      id: `ORD${String(i + 1).padStart(3, '0')}`,
+      customer: ['John Doe', 'Jane Smith', 'Mike Johnson', 'Sarah Williams', 'Robert Brown'][i % 5],
+      date: new Date(2024, 1, 20 - (i % 10)).toISOString().split('T')[0],
+      amount: `₹${(Math.floor(Math.random() * 5000) + 500).toLocaleString()}`,
       status: 'Completed'
-    },
-    {
-      id: 'ORD002',
-      customer: 'Jane Smith',
-      date: '2024-01-21',
-      amount: '₹2,499',
-      status: 'Completed'
-    },
-    {
-      id: 'ORD003',
-      customer: 'Alice Johnson',
-      date: '2024-01-22',
-      amount: '₹3,799',
-      status: 'Completed'
-    }
-  ])
+    }))
+  )
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Completed Orders</h1>
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Order ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {orders.map(order => (
-              <tr key={order.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{order.id}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.customer}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.date}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.amount}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 flex items-center">
-                  <FaCheck className="text-green-500 mr-2" /> {order.status}
-                </td>
+      {/* Header with Icon */}
+      <div className="flex items-center mb-6">
+        <div className="relative w-8 h-8 mr-3 rounded-full">
+          <Image
+            src="/icons/order.png"
+            alt="Completed Orders"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+        <div className="flex flex-col">
+          <h1 className="text-2xl font-bold text-gray-800">Completed Orders</h1>
+          <p className="text-sm text-gray-500">View all completed orders</p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden border">
+        {/* Search and Export */}
+        <div className="p-4 border-b flex justify-end items-center space-x-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search orders..."
+              className="pl-10 pr-4 py-2 border rounded-lg w-64"
+            />
+            <FaSearch className="absolute left-3 top-3 text-gray-400" />
+          </div>
+          <button className="flex items-center gap-2 px-4 py-2 text-teal-800 border border-teal-800 rounded-lg hover:bg-teal-50">
+            <FaFileExport />
+            Export
+          </button>
+        </div>
+
+        {/* Table with Scroll */}
+        <div className="max-h-[600px] overflow-y-auto">
+          <table className="w-full">
+            <thead className="bg-gray-50 sticky top-0 z-10">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {orders.map((order, index) => (
+                <tr key={index} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.customer}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.date}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.amount}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
+                      {order.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

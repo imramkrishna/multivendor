@@ -73,13 +73,13 @@ const RefundsPage = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <div className="flex space-x-3">
-                    <button className="text-blue-600 hover:text-blue-900" title="View Details">
+                    <button className="text-blue-600 border border-blue-600 p-2 rounded hover:text-blue-900" title="View Details">
                       <FaEye />
                     </button>
-                    <button className="text-green-600 hover:text-green-900" title="Approve">
+                    <button className="text-green-600 border border-green-600 p-2 rounded hover:text-green-900" title="Approve">
                       <FaCheck />
                     </button>
-                    <button className="text-red-600 hover:text-red-900" title="Reject">
+                    <button className="text-red-600 border border-red-600 p-2 rounded hover:text-red-900" title="Reject">
                       <FaTimes />
                     </button>
                   </div>

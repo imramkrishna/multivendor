@@ -26,6 +26,7 @@ const Navbar = () => {
     const [isAdsOpen, setIsAdsOpen] = useState(false);
     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     const [isProductSetupOpen, setIsProductSetupOpen] = useState(false);
+    const [isRefundsOpen, setIsRefundsOpen] = useState(false);
 
     return (
         <div>
@@ -276,19 +277,19 @@ const Navbar = () => {
                                             Canceled
                                         </span>
                                     </Link>
-                                    <Link href="/grocery/orders-management/paymentfailedorders">
+                                    <Link href="/grocery/orders-management/failedpayments">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Payment Failed
                                         </span>
                                     </Link>
-                                    <Link href="/grocery/orders-management/refundorders">
+                                    <Link href="/grocery/orders-management/refunds">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Refunded
                                         </span>
                                     </Link>
-                                    <Link href="/grocery/orders-management/refundorders">
+                                    <Link href="/grocery/orders-management/offlinepayments">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Offline Payments
@@ -300,12 +301,29 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
-                        <Link href="/grocery/orders-management/refunds">
-                            <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
-                                <FaExchangeAlt className="mr-3" />
-                                Order Refunds
-                            </span>
-                        </Link>
+                        <div>
+                            <div 
+                                onClick={() => setIsRefundsOpen(!isRefundsOpen)}
+                                className="flex items-center justify-between p-3 rounded-md hover:text-green-300 cursor-pointer"
+                            >
+                                <span className="flex items-center">
+                                    <FaExchangeAlt className="mr-3" />
+                                    Order Refunds
+                                </span>
+                                <FaChevronDown className={`transition-transform duration-200 ${isRefundsOpen ? 'transform rotate-180' : ''}`} />
+                            </div>
+                            
+                            {isRefundsOpen && (
+                                <div className="ml-4 mt-2 space-y-2">
+                                    <Link href="/grocery/orders-management/refunds">
+                                        <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                            <span className="mr-2 text-blue-300">•</span>
+                                            Refund Requests
+                                        </span>
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
                         <Link href="/grocery/orders-management/flashsale">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaBolt className="mr-3" />
@@ -330,13 +348,13 @@ const Navbar = () => {
 
                             {isCampaignsOpen && (
                                 <div className="ml-4 mt-2 space-y-2">
-                                    <Link href="/basic-campaigns">
+                                    <Link href="/grocery/promotion-management/basic-campaigns">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Basic Campaigns
                                         </span>
                                     </Link>
-                                    <Link href="/item-campaigns">
+                                    <Link href="/grocery/promotion-management/item-campaigns">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Item Campaigns
@@ -345,31 +363,31 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
-                        <Link href="/banners">
+                        <Link href="/grocery/promotion-management/banners">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaImages className="mr-3" />
                                 Banners
                             </span>
                         </Link>
-                        <Link href="/other-banners">
+                        <Link href="/grocery/promotion-management/other-banners">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaImage className="mr-3" />
                                 Other Banners
                             </span>
                         </Link>
-                        <Link href="/coupons">
+                        <Link href="/grocery/promotion-management/coupons">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaTicketAlt className="mr-3" />
                                 Coupons
                             </span>
                         </Link>
-                        <Link href="/cashback">
+                        <Link href="/grocery/promotion-management/cashback">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaWallet className="mr-3" />
                                 Cashback
                             </span>
                         </Link>
-                        <Link href="/push-notifications">
+                        <Link href="/grocery/promotion-management/push-notifications">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaBell className="mr-3" />
                                 Push Notification
@@ -389,19 +407,19 @@ const Navbar = () => {
 
                             {isAdsOpen && (
                                 <div className="ml-4 mt-2 space-y-2">
-                                    <Link href="/newad">
+                                    <Link href="/grocery/promotion-management/newad">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             New Advertisement
                                         </span>
                                     </Link>
-                                    <Link href="/adrequests">
+                                    <Link href="/grocery/promotion-management/adrequests">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Ad Requests
                                         </span>
                                     </Link>
-                                    <Link href="/adslist">
+                                    <Link href="/grocery/promotion-management/adslist">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Ads List
@@ -428,13 +446,13 @@ const Navbar = () => {
 
                             {isCategoryOpen && (
                                 <div className="ml-4 mt-2 space-y-2">
-                                    <Link href="/category">
+                                    <Link href="/grocery/product-management/category">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Category
                                         </span>
                                     </Link>
-                                    <Link href="/sub-category">
+                                    <Link href="/grocery/product-management/sub-category">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Sub Category
@@ -455,13 +473,13 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
-                        <Link href="/attributes">
+                        <Link href="/grocery/product-management/attributes">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaTags className="mr-3 " />
                                 Attributes
                             </span>
                         </Link>
-                        <Link href="/units">
+                        <Link href="/grocery/product-management/units">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaRulerHorizontal className="mr-3 " />
                                 Units

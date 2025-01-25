@@ -9,32 +9,29 @@ const Page = () => {
         <div className="p-6">
             <h2 className="text-xl font-semibold mb-6">Advertisement Requests</h2>
             <div className="flex space-x-4 mb-6">
-                <button 
-                    className={`px-4 py-2 rounded-lg transition-colors ${
-                        activeButton === 'new' 
-                            ? 'bg-teal-800 text-white' 
+                <button
+                    className={`px-4 py-2 rounded-lg transition-colors ${activeButton === 'new'
+                            ? 'bg-teal-800 text-white'
                             : 'text-black hover:bg-teal-800 hover:text-white'
-                    }`}
+                        }`}
                     onClick={() => setActiveButton('new')}
                 >
                     New Request
                 </button>
-                <button 
-                    className={`px-4 py-2 rounded-lg transition-colors ${
-                        activeButton === 'update' 
-                            ? 'bg-teal-800 text-white' 
+                <button
+                    className={`px-4 py-2 rounded-lg transition-colors ${activeButton === 'update'
+                            ? 'bg-teal-800 text-white'
                             : 'text-black hover:bg-teal-800 hover:text-white'
-                    }`}
+                        }`}
                     onClick={() => setActiveButton('update')}
                 >
                     Update Request
                 </button>
-                <button 
-                    className={`px-4 py-2 rounded-lg transition-colors ${
-                        activeButton === 'denied' 
-                            ? 'bg-teal-800 text-white' 
+                <button
+                    className={`px-4 py-2 rounded-lg transition-colors ${activeButton === 'denied'
+                            ? 'bg-teal-800 text-white'
                             : 'text-black hover:bg-teal-800 hover:text-white'
-                    }`}
+                        }`}
                     onClick={() => setActiveButton('denied')}
                 >
                     Denied Requests
@@ -66,10 +63,10 @@ const Page = () => {
                                 <td className="px-4 py-3">30 Days</td>
                                 <td className="px-4 py-3">
                                     <div className="flex space-x-2">
-                                        <button className="p-2 text-blue-600 hover:text-blue-800">
+                                        <button className="p-2 border border-blue-600 rounded text-blue-600 hover:text-blue-800">
                                             <FaPencilAlt className="w-4 h-4" />
                                         </button>
-                                        <button className="p-2 text-red-600 hover:text-red-800">
+                                        <button className="p-2 border border-red-600 rounded text-red-600 hover:text-red-800">
                                             <FaTrash className="w-4 h-4" />
                                         </button>
                                     </div>
@@ -84,10 +81,10 @@ const Page = () => {
                                 <td className="px-4 py-3">7 Days</td>
                                 <td className="px-4 py-3">
                                     <div className="flex space-x-2">
-                                        <button className="p-2 text-blue-600 hover:text-blue-800">
+                                        <button className="p-2 border border-blue-600 rounded text-blue-600 hover:text-blue-800">
                                             <FaPencilAlt className="w-4 h-4" />
                                         </button>
-                                        <button className="p-2 text-red-600 hover:text-red-800">
+                                        <button className="p-2 border border-red-600 rounded text-red-600 hover:text-red-800">
                                             <FaTrash className="w-4 h-4" />
                                         </button>
                                     </div>
