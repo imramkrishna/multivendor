@@ -15,7 +15,7 @@ const PendingOrdersPage = () => {
   )
 
   return (
-    <div className="p-6">
+    <div className="p-2">
       {/* Header with Icon */}
       <div className="flex items-center mb-6">
         <div className="relative w-10 h-10 mr-3 rounded-full">

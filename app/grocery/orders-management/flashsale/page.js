@@ -13,7 +13,7 @@ const renderIcon = (iconPath, className) => (
 
 const FlashSalePage = () => {
     return (
-        <div className="p-6 space-y-6">
+        <div className="p-2 space-y-6">
             <h1 className="text-2xl font-bold text-gray-800 flex items-center mb-6">
                 {renderIcon("/icons/flashsale.png", "mr-3")}
                 Flash Sale Setup

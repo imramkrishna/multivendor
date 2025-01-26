@@ -20,7 +20,7 @@ const FailedPaymentsPage = () => {
   )
 
   return (
-    <div className="p-6">
+    <div className="p-2">
       {/* Header */}
       <div className="flex items-center mb-6">
         <div className="relative w-8 h-8 mr-3 rounded-full">
