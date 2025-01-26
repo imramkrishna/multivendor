@@ -5,7 +5,7 @@ export default function FoodLayout({ children }) {
         
       <div className="food-layout">
         <FoodNav/>
-        <div className="ml-72">{children}</div>
+        <div className="ml-72 mt-4">{children}</div>
         
       </div>
     )

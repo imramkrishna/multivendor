@@ -161,7 +161,7 @@ const Navbar = () => {
                                     </Link>
                                     <Link href="/food/dashboard">
                                         <span className="flex flex-col items-center px-3 py-5 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
-                                            {renderIcon("/icons/pharmacy.png", "text-blue-600")}
+                                            {renderIcon("/food.png", "text-blue-600")}
                                             <div className="text-center">
                                                 <p className="font-medium">Food</p>
                                                 <p className="text-xs text-gray-500">Manage food orders</p>
