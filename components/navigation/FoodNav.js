@@ -47,7 +47,7 @@ const Navbar = () => {
 
                     {/* Center Navigation Items */}
                     <div className="flex items-center space-x-4 flex-1 justify-center">
-                        <Link href="/users">
+                        <Link href="/modulesection/user-overview">
                             <span className="px-3 py-2 text-teal-700 cursor-pointer flex items-center">
                                 {renderIcon("/icons/user.svg", "mr-2")}
                                 Users
@@ -120,47 +120,47 @@ const Navbar = () => {
 
                     {/* Right Navigation Items */}
                     <div className="flex items-center space-x-4">
-                        <Link href="/chat">
+                        <Link href="/modulesection/chat">
                             <span className="px-3 py-2 text-gray-700 hover:text-blue-600 cursor-pointer flex items-center">
                                 <FaComments className="mr-2" /> Chat
                             </span>
                         </Link>
                         <div className="relative group">
                             <span className="px-3 py-5 bg-blue-800 text-white hover:bg-blue-800 cursor-pointer flex items-center w-48 justify-center">
-                                {renderLogoIcon("/icons/grocery.png", "text-green-600 mx-2")}
+                                {renderLogoIcon("/food.png", "text-green-600 mx-2")}
                                 Food
                                 <FaChevronDown className="ml-2 text-sm transition-transform group-hover:rotate-180" />
                             </span>
 
                             {/* Dropdown Menu */}
                             <div className="absolute right-0 mt-1 bg-white rounded-lg shadow-xl py-4 hidden group-hover:block transform transition-all duration-200 z-50 w-[500px]">
-                                <div className="module-secction m-4 ">
+                                <div className="module-section m-4 ">
                                 <p className='font-bold text-xl'>Modules Section</p>
                                 <p className='text-blue-600 my-3'>Select Module and monitor <p className='text-blue-600'>your business module wise</p></p>
                                 
                                 </div>
                                 <div className="flex flex-row items-center justify-evenly px-4 my-12">
-                                <Link href="/dashboard">
+                                <Link href="/grocery/dashboard">
                                         <span className="flex flex-col items-center px-3 py-3 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
-                                            {renderIcon("/icons/grocery.png", "text-green-600")}
+                                            {renderIcon("/grocery.png", "text-green-600")}
                                             <div className="text-center">
                                                 <p className="font-medium ">Grocery</p>
                                                 <p className="text-xs text-gray-500">Manage Food items</p>
                                             </div>
                                         </span>
                                     </Link>
-                                    <Link href="/dashboard">
+                                    <Link href="/pharmacy/dashboard">
                                         <span className="flex flex-col items-center px-3 py-3 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
-                                            {renderIcon("/icons/pharmacy.png", "text-blue-600")}
+                                            {renderIcon("/pharmacy.png", "text-blue-600")}
                                             <div className="text-center">
                                                 <p className="font-medium">Pharmacy</p>
                                                 <p className="text-xs text-gray-500">Manage medicine orders</p>
                                             </div>
                                         </span>
                                     </Link>
-                                    <Link href="/dashboard">
+                                    <Link href="/food/dashboard">
                                         <span className="flex flex-col items-center px-3 py-3 text-gray-700 hover:bg-blue-50 transition-colors rounded-lg w-36 border border-blue-200">
-                                            {renderIcon("/icons/pharmacy.png", "text-blue-600")}
+                                            {renderIcon("/food.png", "text-blue-600")}
                                             <div className="text-center">
                                                 <p className="font-medium">Food</p>
                                                 <p className="text-xs text-gray-500">Manage medicine orders</p>

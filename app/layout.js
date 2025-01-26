@@ -24,10 +24,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ModuleProvider>
         <body>
-          <NavbarController />
-          <div className="module-navbar">
-            <ModuleNav/>
-          </div>
+         
+         
+          
           <main>{children}</main>
         </body>
       </ModuleProvider>

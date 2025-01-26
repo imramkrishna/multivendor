@@ -1,6 +1,7 @@
 import GroceryNav from './GroceryNav'
 import PharmacyNav from './PharmacyNav'
 import FoodNav from './FoodNav'
+import ModuleNav from './ModuleNav'
 
 const NavbarController = ({ module }) => {
   switch(module) {
@@ -11,7 +12,7 @@ const NavbarController = ({ module }) => {
     case 'food':
       return <FoodNav />
     default:
-      return null
+      return <ModuleNav/>
   }
 }
 

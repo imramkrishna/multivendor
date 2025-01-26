@@ -48,13 +48,13 @@ const Navbar = () => {
 
                     {/* Center Navigation Items */}
                     <div className="flex items-center space-x-4 flex-1 justify-center">
-                        <Link href="/users">
+                        <Link href="/modulesection/user-overview">
                             <span className="px-3 py-2 text-teal-700 cursor-pointer flex items-center">
                                 {renderIcon("/icons/user.svg", "mr-2")}
                                 Users
                             </span>
                         </Link>
-                        <Link href="/reports">
+                        <Link href="/modulesection/transactionreports">
                             <span className="px-3 py-2 text-teal-700 cursor-pointer flex items-center">
                                 {renderIcon("/icons/transactionreport.svg", "mr-2")}
                                 Transaction Reports
@@ -111,7 +111,7 @@ const Navbar = () => {
                                 </Link>
                             </div>
                         </div>
-                        <Link href="/dispatch">
+                        <Link href="/modulesection/dispatch-management">
                             <span className="px-3 py-2 text-teal-700 cursor-pointer flex items-center">
                             {renderIcon("/icons/dispatch.svg", "mr-2")} Dispatch Management
                             </span>
@@ -121,7 +121,7 @@ const Navbar = () => {
 
                     {/* Right Navigation Items */}
                     <div className="flex items-center space-x-4">
-                        <Link href="/chat">
+                        <Link href="/modulesection/chat">
                             <span className="px-3 py-2 text-gray-700 hover:text-blue-600 cursor-pointer flex items-center">
                                 <FaComments className="mr-2" /> Chat
                             </span>
