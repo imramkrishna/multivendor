@@ -539,37 +539,37 @@ const Navbar = () => {
 
                             STORES MANAGEMENT
                         </p>
-                        <Link href="/storeslist">
+                        <Link href="/food/store-management/newstores">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaStoreAlt className="mr-3" />
                                 New Stores
                             </span>
                         </Link>
-                        <Link href="/addstores">
+                        <Link href="/food/store-management/addstores">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaPlusCircle className="mr-3" />
                                 Add Store
                             </span>
                         </Link>
-                        <Link href="/storeslist">
+                        <Link href="/food/store-management/storeslist">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaStoreAlt className="mr-3" />
                                 Stores List
                             </span>
                         </Link>
-                        <Link href="/addstores">
+                        <Link href="/food/store-management/recommendedstores">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaPlusCircle className="mr-3" />
                                 Recommended Stores
                             </span>
                         </Link>
-                        <Link href="/addstores">
+                        <Link href="/food/bulkimport">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaPlusCircle className="mr-3" />
                                 Bulk Import
                             </span>
                         </Link>
-                        <Link href="/addstores">
+                        <Link href="/food/bulkexport">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaPlusCircle className="mr-3" />
                                 Bulk Export

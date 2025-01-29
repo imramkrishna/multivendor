@@ -1,110 +1,134 @@
-"use client"
-import React, { useState } from 'react'
-import { FaSearch, FaStore, FaStar, FaEye, FaEdit, FaTrash } from 'react-icons/fa'
+'use client'
+import { useState } from 'react'
+import { EyeIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { Switch } from '@headlessui/react'
+import Image from 'next/image'
 
-const StoresListPage = () => {
-  const stores = [
+export default function StoresList() {
+  const [stores, setStores] = useState([
     {
-      id: 'ST001',
-      name: 'Fashion Store',
-      owner: 'John Doe',
-      location: 'New York',
-      rating: 4.8,
-      reviews: 156,
-      ordersCompleted: 1234,
-      revenue: '₹2,45,670',
-      status: 'Active',
-      joinedDate: '2024-01-15'
+      id: 1,
+      storeName: "MedPlus Pharmacy",
+      ownerName: "John Doe",
+      zone: "North",
+      featured: true,
+      status: true,
     },
-    // Add more stores here
-  ]
+    // Add more mock data as needed
+  ])
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Stores</h1>
-        
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search stores..."
-            className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <FaSearch className="absolute left-3 top-3 text-gray-400" />
-        </div>
+    <div className="p-6 space-y-6">
+      {/* Stores Overview Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 justify-evenly">
+  {[
+    { title: 'Total Stores', count: '125', color: 'bg-blue-100 text-blue-800', icon: '/totalstore.png' },
+    { title: 'Active Stores', count: '98', color: 'bg-green-100 text-green-800', icon: '/active-store.png' },
+    { title: 'Inactive Stores', count: '27', color: 'bg-red-100 text-red-800', icon: '/close-store.png' },
+    { title: 'Newly Joined', count: '15', color: 'bg-yellow-100 text-yellow-800', icon: '/add-store.png' }
+  ].map((stat) => (
+    <div key={stat.title} className={`${stat.color} p-4 rounded-lg flex justify-between items-center`}>
+      <div>
+        <h3 className="font-semibold">{stat.title}</h3>
+        <p className="text-2xl font-bold">{stat.count}</p>
       </div>
-
-      {/* Stats Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-        <div className="bg-blue-500 text-white rounded-xl p-6">
-          <FaStore className="text-3xl mb-2 opacity-80" />
-          <h3 className="text-lg opacity-80">Total Stores</h3>
-          <p className="text-3xl font-bold">126</p>
-        </div>
-        <div className="bg-green-500 text-white rounded-xl p-6">
-          <h3 className="text-lg opacity-80">Active Stores</h3>
-          <p className="text-3xl font-bold">98</p>
-        </div>
-        <div className="bg-yellow-500 text-white rounded-xl p-6">
-          <h3 className="text-lg opacity-80">Total Revenue</h3>
-          <p className="text-3xl font-bold">₹12.4L</p>
-        </div>
-        <div className="bg-purple-500 text-white rounded-xl p-6">
-          <h3 className="text-lg opacity-80">Avg. Rating</h3>
-          <p className="text-3xl font-bold">4.6</p>
-        </div>
+      <div className="flex-shrink-0 ml-auto">
+        <Image 
+          src={stat.icon}
+          alt={stat.title}
+          width={50}
+          height={50}
+        />
       </div>
+    </div>
+  ))}
+</div>
 
-      {/* Stores Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {stores.map((store) => (
-          <div key={store.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-800">{store.name}</h3>
-                  <p className="text-sm text-gray-500">{store.owner}</p>
-                </div>
-                <span className={`px-2 py-1 text-xs font-semibold rounded-full
-                  ${store.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                  {store.status}
-                </span>
-              </div>
-
-              <div className="flex items-center mb-4">
-                <FaStar className="text-yellow-400 mr-1" />
-                <span className="font-medium mr-2">{store.rating}</span>
-                <span className="text-sm text-gray-500">({store.reviews} reviews)</span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <p className="text-sm text-gray-500">Orders</p>
-                  <p className="font-medium">{store.ordersCompleted}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Revenue</p>
-                  <p className="font-medium">{store.revenue}</p>
-                </div>
-              </div>
-
-              <div className="flex justify-end space-x-2 mt-4 pt-4 border-t">
-                <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
-                  <FaEye />
-                </button>
-                <button className="p-2 text-green-600 hover:bg-green-50 rounded-lg">
-                  <FaEdit />
-                </button>
-                <button className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
-                  <FaTrash />
-                </button>
-              </div>
-            </div>
+      {/* Transaction Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[
+          { title: 'Total Transactions', amount: '$52,000' },
+          { title: 'Commission Earned', amount: '$2,800' },
+          { title: 'Total Store Withdraws', amount: '$48,200' }
+        ].map((stat) => (
+          <div key={stat.title} className="bg-white p-4 rounded-lg shadow h-24 flex flex-col justify-center">
+            <h3 className="text-gray-500">{stat.title}</h3>
+            <p className="text-2xl font-bold">{stat.amount}</p>
           </div>
         ))}
+      </div>
+
+      {/* Stores Table */}
+      <div className="bg-white rounded-lg shadow">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">SI</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Store Information</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Owner Information</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Zone</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Featured</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {stores.map((store, index) => (
+              <tr key={store.id}>
+                <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{store.storeName}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{store.ownerName}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{store.zone}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <Switch
+                    checked={store.featured}
+                    onChange={(checked) => {
+                      const updatedStores = [...stores]
+                      updatedStores[index].featured = checked
+                      setStores(updatedStores)
+                    }}
+                    className={`${store.featured ? 'bg-teal-600' : 'bg-gray-200'} 
+                      relative inline-flex h-6 w-11 items-center rounded-full`}
+                  >
+                    <span className={`${store.featured ? 'translate-x-6' : 'translate-x-1'} 
+                      inline-block h-4 w-4 transform rounded-full bg-white transition`}
+                    />
+                  </Switch>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <Switch
+                    checked={store.status}
+                    onChange={(checked) => {
+                      const updatedStores = [...stores]
+                      updatedStores[index].status = checked
+                      setStores(updatedStores)
+                    }}
+                    className={`${store.status ? 'bg-teal-600' : 'bg-gray-200'} 
+                      relative inline-flex h-6 w-11 items-center rounded-full`}
+                  >
+                    <span className={`${store.status ? 'translate-x-6' : 'translate-x-1'} 
+                      inline-block h-4 w-4 transform rounded-full bg-white transition`}
+                    />
+                  </Switch>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="flex space-x-2">
+                    <button className="p-2 text-blue-600 hover:bg-blue-50 rounded border border-blue-600">
+                      <EyeIcon className="h-5 w-5" />
+                    </button>
+                    <button className="p-2 text-green-600 hover:bg-green-50 rounded border border-green-600">
+                      <PencilSquareIcon className="h-5 w-5" />
+                    </button>
+                    <button className="p-2 text-red-600 hover:bg-red-50 rounded border border-red-600">
+                      <TrashIcon className="h-5 w-5" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )
 }
-
-export default StoresListPage

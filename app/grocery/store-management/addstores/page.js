@@ -1,135 +1,156 @@
-"use client"
-import React, { useState } from 'react'
-import { FaStore, FaTrash, FaPlus } from 'react-icons/fa'
+'use client'
+import { useState } from 'react'
+import Image from 'next/image'
 
-const AddStoresPage = () => {
-  const [stores, setStores] = useState([
-    { id: 1, name: 'Store 1', location: 'New York', category: 'Grocery', status: 'Active' },
-    { id: 2, name: 'Store 2', location: 'Chicago', category: 'Pharmacy', status: 'Active' }
-  ])
-
-  const [newStore, setNewStore] = useState({
+export default function AddStore() {
+  const [formData, setFormData] = useState({
     name: '',
-    location: '',
-    category: '',
-    ownerName: '',
+    address: '',
+    logo: null,
+    storeCover: null,
+    vatTax: '',
+    deliveryTime: '',
+    zone: '',
+    latitude: '',
+    longitude: '',
+    firstName: '',
+    lastName: '',
     phone: '',
-    email: ''
+    email: '',
+    password: '',
+    confirmPassword: ''
   })
 
-  const handleAddStore = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setStores([...stores, { ...newStore, id: stores.length + 1, status: 'Active' }])
-    setNewStore({ name: '', location: '', category: '', ownerName: '', phone: '', email: '' })
-  }
-
-  const handleDeleteStore = (id) => {
-    setStores(stores.filter(store => store.id !== id))
+    // Handle form submission
   }
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Store Management</h1>
-
-      {/* Add New Store Form */}
-      <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-        <h2 className="text-lg font-semibold mb-4 flex items-center">
-          <FaPlus className="mr-2" /> Add New Store
-        </h2>
-        
-        <form onSubmit={handleAddStore} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <input
-            type="text"
-            placeholder="Store Name"
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={newStore.name}
-            onChange={(e) => setNewStore({ ...newStore, name: e.target.value })}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Location"
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={newStore.location}
-            onChange={(e) => setNewStore({ ...newStore, location: e.target.value })}
-            required
-          />
-          <select
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={newStore.category}
-            onChange={(e) => setNewStore({ ...newStore, category: e.target.value })}
-            required
-          >
-            <option value="">Select Category</option>
-            <option value="Grocery">Grocery</option>
-            <option value="Pharmacy">Pharmacy</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Electronics">Electronics</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Owner Name"
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={newStore.ownerName}
-            onChange={(e) => setNewStore({ ...newStore, ownerName: e.target.value })}
-            required
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={newStore.phone}
-            onChange={(e) => setNewStore({ ...newStore, phone: e.target.value })}
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={newStore.email}
-            onChange={(e) => setNewStore({ ...newStore, email: e.target.value })}
-            required
-          />
-          <button
-            type="submit"
-            className="md:col-span-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-          >
-            Add Store
-          </button>
-        </form>
+       <div className="flex items-center gap-4 mb-6">
+        <Image
+          src="/store.png"
+          alt="Store Icon"
+          width={40}
+          height={40}
+          className="rounded-lg"
+        />
+        <h1 className="text-2xl font-bold text-gray-800">Add New Store</h1>
       </div>
-
-      {/* Stores List */}
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <h2 className="text-lg font-semibold mb-4 flex items-center">
-          <FaStore className="mr-2" /> Existing Stores
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stores.map((store) => (
-            <div key={store.id} className="border rounded-lg p-4 hover:shadow-md">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-semibold">{store.name}</h3>
-                  <p className="text-sm text-gray-500">{store.location}</p>
-                  <p className="text-sm text-gray-500">{store.category}</p>
-                </div>
-                <span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                  {store.status}
-                </span>
-              </div>
-              <button
-                onClick={() => handleDeleteStore(store.id)}
-                className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2 text-red-600 border border-red-600 rounded-lg hover:bg-red-50"
-              >
-                <FaTrash /> Remove Store
-              </button>
+      
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Basic Store Details */}
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-lg font-semibold mb-4">Basic Details</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Store Name</label>
+              <input type="text" className="w-full p-2 border rounded" />
             </div>
-          ))}
+            <div>
+              <label className="block text-sm font-medium mb-1">Address</label>
+              <input type="text" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Logo</label>
+              <input type="file" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Store Cover</label>
+              <input type="file" className="w-full p-2 border rounded" />
+            </div>
+          </div>
         </div>
-      </div>
+
+        {/* Store Information */}
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-lg font-semibold mb-4">Store Information</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">VAT/Tax (%)</label>
+              <input type="number" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Estimated Delivery Time</label>
+              <input type="text" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Zone</label>
+              <select className="w-full bg-white p-2.5 border rounded">
+                <option>Select Zone</option>
+                <option>North</option>
+                <option>South</option>
+                <option>East</option>
+                <option>West</option>
+              </select>
+            </div>
+            <div className="md:col-span-3">
+              <div className="h-64 bg-gray-100 rounded">
+                {/* Map Component Goes Here */}
+                <div className="flex gap-4 mt-2">
+                  <input type="text" placeholder="Latitude" className="w-full p-2 border rounded" />
+                  <input type="text" placeholder="Longitude" className="w-full p-2 border rounded" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Owner Information */}
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-lg font-semibold mb-4">Owner Information</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">First Name</label>
+              <input type="text" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Last Name</label>
+              <input type="text" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Phone</label>
+              <input type="tel" className="w-full p-2 border rounded" />
+            </div>
+          </div>
+        </div>
+
+        {/* Account Information */}
+        <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-lg font-semibold mb-4">Account Information</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Email</label>
+              <input type="email" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Password</label>
+              <input type="password" className="w-full p-2 border rounded" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Confirm Password</label>
+              <input type="password" className="w-full p-2 border rounded" />
+            </div>
+          </div>
+        </div>
+
+        {/* Form Actions */}
+        <div className="flex justify-end gap-4">
+          <button 
+            type="reset" 
+            className="px-4 py-2 border rounded hover:bg-gray-50"
+          >
+            Reset
+          </button>
+          <button 
+            type="submit" 
+            className="px-4 py-2 bg-teal-800 text-white rounded hover:bg-teal-900"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
   )
 }
-
-export default AddStoresPage
