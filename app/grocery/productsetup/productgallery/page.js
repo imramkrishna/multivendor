@@ -55,7 +55,7 @@ const Page = () => {
   return (
     <div className="p-6 space-y-6">
         <h2 className="text-xl font-semibold mb-6 flex items-center">
-          {renderIcon("/icons/product-gallery.png", "mr-3")}
+          {renderIcon("/icons/items.png", "mr-3")}
           Product Gallery
         </h2>
       <div className="bg-white border h-24 rounded-lg shadow-sm flex items-center gap-4 px-4 mt-4">

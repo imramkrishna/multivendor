@@ -27,7 +27,7 @@ const Page = () => {
     return (
         <div className="p-6 space-y-6">
             <h2 className="text-xl font-semibold mb-6 flex items-center">
-                {renderIcon("/icons/item-requests.png", "mr-3")}
+                {renderIcon("/icons/items.png", "mr-3")}
                 New Item Requests
             </h2>
             {/* Search Filters */}

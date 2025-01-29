@@ -14,7 +14,7 @@ const Page = () => {
     return (
         <div className="p-6">
             <h2 className="text-xl font-semibold mb-6 flex items-center">
-                {renderIcon("/icons/low-stock.png", "mr-3")}
+                {renderIcon("/icons/items.png", "mr-3")}
                 Low Stock List
             </h2>
             <div className="bg-white rounded-xl shadow-sm p-6 border">
