@@ -535,13 +535,13 @@ const Navbar = () => {
                                             Review
                                         </span>
                                     </Link>
-                                    <Link href="/product/bulk-import">
+                                    <Link href="/grocery/bulk-import">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Bulk Import
                                         </span>
                                     </Link>
-                                    <Link href="/product/bulk-export">
+                                    <Link href="/grocery/bulk-export">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Bulk Export

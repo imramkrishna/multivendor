@@ -481,49 +481,49 @@ const Navbar = () => {
 
                             {isProductSetupOpen && (
                                 <div className="ml-4 mt-2 space-y-2">
-                                    <Link href="/product/add">
+                                    <Link href="/food/productsetup/addnew">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Add New
                                         </span>
                                     </Link>
-                                    <Link href="/product/list">
+                                    <Link href="/food/productsetup/list">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             List
                                         </span>
                                     </Link>
-                                    <Link href="/product/low-stock">
+                                    <Link href="/food/productsetup/lowstocklist">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Low Stock List
                                         </span>
                                     </Link>
-                                    <Link href="/product/gallery">
+                                    <Link href="/food/productsetup/productgallery">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Product Gallery
                                         </span>
                                     </Link>
-                                    <Link href="/product/requests">
+                                    <Link href="/food/productsetup/newitemrequest">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             New Item Request
                                         </span>
                                     </Link>
-                                    <Link href="/product/reviews">
+                                    <Link href="/food/productsetup/review">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Review
                                         </span>
                                     </Link>
-                                    <Link href="/product/bulk-import">
+                                    <Link href="/food/bulk-import">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Bulk Import
                                         </span>
                                     </Link>
-                                    <Link href="/product/bulk-export">
+                                    <Link href="/food/bulk-export">
                                         <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
                                             <span className="mr-2 text-blue-300">•</span>
                                             Bulk Export
