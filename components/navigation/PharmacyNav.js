@@ -26,6 +26,7 @@ const Navbar = () => {
     const [isAdsOpen, setIsAdsOpen] = useState(false);
     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     const [isProductSetupOpen, setIsProductSetupOpen] = useState(false);
+        const [isRefundsOpen, setIsRefundsOpen] = useState(false);
 
     return (
         <div>
@@ -300,18 +301,35 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
-                        <Link href="/pharmacy/orders-management/refunds">
-                            <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
-                                <FaExchangeAlt className="mr-3" />
-                                Order Refunds
-                            </span>
-                        </Link>
-                        <Link href="/pharmacy/orders-management/flashsale">
+                        <div>
+                            <div 
+                                onClick={() => setIsRefundsOpen(!isRefundsOpen)}
+                                className="flex items-center justify-between p-3 rounded-md hover:text-green-300 cursor-pointer"
+                            >
+                                <span className="flex items-center">
+                                    <FaExchangeAlt className="mr-3" />
+                                    Order Refunds
+                                </span>
+                                <FaChevronDown className={`transition-transform duration-200 ${isRefundsOpen ? 'transform rotate-180' : ''}`} />
+                            </div>
+                            
+                            {isRefundsOpen && (
+                                <div className="ml-4 mt-2 space-y-2">
+                                    <Link href="/pharmacy/orders-management/refunds">
+                                        <span className="flex items-center p-2 text-sm rounded-md hover:text-green-300">
+                                            <span className="mr-2 text-blue-300">•</span>
+                                            Refund Requests
+                                        </span>
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+                        {/* <Link href="/pharmacy/orders-management/flashsale">
                             <span className="flex items-center p-3 rounded-md hover:text-green-300 cursor-pointer">
                                 <FaBolt className="mr-3" />
                                 Flash Sale
                             </span>
-                        </Link>
+                        </Link> */}
                         <p className='text-neutral-400 text-sm flex items-center'>
 
                             PROMOTION MANAGEMENT

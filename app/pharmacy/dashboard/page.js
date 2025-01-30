@@ -10,7 +10,7 @@ const DashboardPage = () => {
     {
       title: "Items",
       value: "1,234",
-      icon: "/icons/shopping-cart.svg",
+      icon: "/pharmacy/items.svg",
       iconColor: "text-blue-500"
     },
     {

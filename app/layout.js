@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <ModuleProvider>
-        <body>
+        <body className=''>
           
          
          
