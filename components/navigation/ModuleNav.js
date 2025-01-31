@@ -123,7 +123,7 @@ const Navbar = () => {
 
                     {/* Right Navigation Items */}
                     <div className="flex items-center space-x-4">
-                        <Link href="/chat">
+                        <Link href="/modulesection/chat">
                             <span className="px-3 py-2 text-gray-700 hover:text-blue-600 cursor-pointer flex items-center">
                                 <FaComments className="mr-2" /> Chat
                             </span>

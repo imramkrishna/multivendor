@@ -111,7 +111,7 @@ const Navbar = () => {
                                 </Link>
                             </div>
                         </div>
-                        <Link href="/dispatch">
+                        <Link href="/modulesection/dispatch-management">
                             <span className="px-3 py-2 text-teal-700 cursor-pointer flex items-center">
                             {renderIcon("/icons/dispatch.svg", "mr-2")} Dispatch Management
                             </span>
