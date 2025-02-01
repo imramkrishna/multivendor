@@ -6,6 +6,7 @@ import { metadata } from './metadata'
 import NavbarController from '@/components/navigation/NavbarController'
 import ModuleNav from '@/components/navigation/ModuleNav'
 import "./globals.css"
+import Link from 'next/link'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ModuleProvider>
         <body className=''>
+          <Link href="/grocery/dashboard">Go to dashboard</Link>
           
          
          
